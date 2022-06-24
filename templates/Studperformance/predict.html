@@ -1,0 +1,92 @@
+{% extends 'base.html' %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<script src="{% static 'js/axios.min.js' %}"></script>
+	<script src="{% static 'js/index.js' %}"></script>
+	<script src="https://cdn.tailwindcss.com"></script>
+    
+    <title>Document</title>
+</head>
+<body class="bg-gray-100 h-full w-full">
+    {% block content %}
+        <div class="flex flex-row flex-row-reverse h-full w-full gap-4 pt-20 px-52">
+            <div class="h-full bg-gray-50 py-2 px-10 rounded-xl shadow-lg flex flex-col justify-center gap-4 item-center overflow-hidden w-1/2">
+                <img class="w-80" src="{% static 'img/predict.svg' %}" />
+            </div>
+            <div class="w-1/2 px-10 gap-4 flex flex-col">
+                <div class="w-full flex gap-4">
+                    <div class=" w-full">
+                        <div title="Daily alcohol Comsumption" class="flex gap-2">DAlc
+                            <svg  class="w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                        </div>
+                        <select class="dalc w-full h-14 outline-none rounded-lg border-2 px-10">
+                            <option value="1">very low</option>
+                            <option value="2">low</option>
+                            <option value="3">moderate</option>
+                            <option value="4">high</option>
+                            <option value="5">very high</option>
+                        </select>
+                    </div>
+
+                    
+                    <div class="w-full">
+                        <div title="Weekly alcohol Comsumption" class="flex gap-2">WAlc
+                            <svg  class="w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                        </div>
+                        <select class="walc w-full h-14 outline-none rounded-lg border-2 px-10">
+                            <option value="1">very low</option>
+                            <option value="2">low</option>
+                            <option value="3">moderate</option>
+                            <option value="4">high</option>
+                            <option value="5">very high</option>
+                        </select>
+                    </div>
+
+                </div>
+
+                
+                <div class="w-full flex gap-3">
+                    <input class="w-full h-14 outline-none rounded-lg abs border-2 px-10" type="number" min="0" placeholder="No absence" />
+                    <input class="w-full fail h-14 outline-none rounded-lg abs border-2 px-10" type="number" min="0" placeholder="No failures" />
+                </div>
+                
+                <div class="w-full flex gap-3">
+                    <input class="w-full h-14 g1 outline-none rounded-lg border-2 px-10" type="number" max="20" placeholder="term 1 score" />
+
+                    <input class="w-full h-14 g2 outline-none rounded-lg border-2 px-10" type="number" max="20" placeholder="term 2 score" />
+                </div>
+                
+                
+                <div class="">
+                    <div class="">mother's education</div>
+                    <select class="w-full medu h-14 outline-none rounded-lg border-2 px-10">
+                        <option value="0">none</option>
+                        <option value="1">primary education (4th grade)</option>
+                        <option value="2">5th to 9th grade</option>
+                        <option value="3">secondary education</option>
+                        <option value="4">higher education</option>
+                    </select>
+                </div>
+                
+					<input class="hidden email" value='{{request.session.email}}'  disabled hidden/>
+
+                <div class="w-full h-10 flex flex-row justify-center item-center">
+                    <div onclick="handleSubmit2()" class="h-full w-32 rounded-lg flex flex-row justify-center cursor-pointer text-gray-100 item-center bg-lime-300 gap-3 pt-2">
+                        <span class="animate-spin hidden spn h-6 w-6 border-4 border-gray-200 border-t-gray-400 rounded-full"></span>
+                        <div>predict</div>
+                    </div>
+                </div>
+                    
+
+                </div>
+            </div>
+        </div>
+    {% endblock %}
+
+</body>
+</html>

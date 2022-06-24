@@ -1,0 +1,39 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<script src="{% static 'js/axios.min.js' %}"></script>
+	<script src="{% static 'js/index.js' %}"></script>
+	<script src="https://cdn.tailwindcss.com"></script>
+	<title>Homepage</title>
+</head>
+<body>
+	<div class="w-full py-10 flex justify-center item-center h-screen bg-gray-100">
+		<div class="h-full shadow-lg flex flex-row-reverse rounded-xl w-4/6 overflow-hidden">
+			<div class="w-1/2 h-full flex flex-col py-8 gap-24">
+				<div class="w-full h-10 flex justify-center item-center text-3xl font-extralight">Login</div>
+
+				<div class="w-full h-full flex flex-col gap-10 px-20">
+					<input class="w-full h-14 outline-none email rounded-lg border-2 px-10" placeholder="email" />
+
+					<div class="w-full flex gap-3">
+						<input class="w-full h-14 outline-none p2 rounded-lg border-2 px-10" placeholder="password" type="password" />
+					</div>
+
+					<div class="w-full h-10 flex justify-center item-center">
+						<div onclick="handleSubmit1()" class="h-full w-20 rounded-lg flex justify-center cursor-pointer text-gray-100 item-center bg-lime-300">login</div>
+					</div>
+					<a href="/" class="text-blue-600">signup</a>
+				</div>
+			</div>
+			<div class="w-1/2 flex justify-center bg-gray-200 item-center overflow-hidden">
+				<img class="w-full" src="{% static 'img/login.svg' %}" alt="My image">
+			</div>
+		</div>
+	</div>
+	<!-- <img src="{% static 'img/signup.png' %}" alt="My image"> -->
+</body>
+</html>
