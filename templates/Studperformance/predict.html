@@ -14,7 +14,7 @@
 </head>
 <body class="bg-gray-100 h-full w-full">
     {% block content %}
-        <div class="flex flex-row flex-row-reverse h-full w-full gap-4 pt-20 px-52">
+        <!-- <div class="flex flex-row flex-row-reverse h-full w-full gap-4 pt-20 px-52">
             <div class="h-full bg-gray-50 py-2 px-10 rounded-xl shadow-lg flex flex-col justify-center gap-4 item-center overflow-hidden w-1/2">
                 <img class="w-80" src="{% static 'img/predict.svg' %}" />
             </div>
@@ -82,6 +82,100 @@
                     </div>
                 </div>
                     
+
+                </div>
+            </div>
+        </div> -->
+        <div class="flex  flex-row flex-row-reverse h-full w-full gap-4 lg:px-52 px-3 py-3">
+            <div class="absolute alt z-30 w-full flex flex-row justify-center item-center">
+                <div class="w-fit p-3 bg-green-600 rounded-b-xl text-gray-100 bg-opacity-70 flex flex-row">Your predicted grade was a(n) "<p class="grade"></p>"</div>
+            </div>
+
+
+            <div class="w-full h-full flex flex-col bg-[url('static/img/predict.svg')] bg-contain bg-center bg-no-repeat overflow-hidden rounded-2xl shadow-xl">
+                <div class="w-full h-full lg:px-10 px-2 gap-4 flex flex-col justify-center item-center bg-black backdrop-blur-sm bg-opacity-20 overflow-y-scroll pb-10 lg:pt-52 pt-96">
+                    <div class="w-full flex flex-row justify-center mb-10 mt-52 lg:mt-26"><div class="w-96 lg:text-6xl text-4xl text-center font-extralight">Third semester grade prediction</div></div>
+
+                    <div class="w-full flex gap-4">
+                        <div class="w-full bg-red-100 p-2 rounded-md border-dotted border-2 border-red-300">
+                            <div class="flex gap-2">What is your daily Alcohol consumption like?
+                            </div>
+                            <select class="dalc w-full h-14 outline-none rounded-lg border-2 lg:pl-10 pl-2">
+                                <option value="1">1- very low</option>
+                                <option value="2">2- low</option>
+                                <option value="3">3- moderate</option>
+                                <option value="4">4- high</option>
+                                <option value="5">5- very high</option>
+                            </select>
+                        </div>
+    
+                        
+                        <div class="w-full bg-red-100 p-2 rounded-md border-dotted border-2 border-red-300">
+                            <div title="Weekly alcohol Comsumption" class="flex gap-2">What is your weekly Alcohol consumption like?
+                            </div>
+                            <select class="walc w-full h-14 outline-none rounded-lg border-2 lg:pl-10 pl-2">
+                                <option value="1">1- very low</option>
+                                <option value="2">2- low</option>
+                                <option value="3">3- moderate</option>
+                                <option value="4">4- high</option>
+                                <option value="5">5- very high</option>
+                            </select>
+                        </div>
+    
+                    </div>
+                    
+                    <div class="w-full flex flex-col lg:flex-row gap-3">
+                        
+                        <div class="w-full bg-red-100 p-2 rounded-md border-dotted border-2 border-red-300">
+                            <div class="flex gap-2">How many times have you been absent this semester?
+                            </div>
+                            <input class="w-full h-14 outline-none rounded-lg abs border-2 px-10" type="number" min="0" placeholder="absence from 0 to 93" />
+                        </div>
+
+                        <div class="w-full bg-red-100 p-2 rounded-md border-dotted border-2 border-red-300">
+                            <div class="flex gap-2">How many courses have you failed in the last 2 semesters?
+                            </div>
+                            <input class="w-full fail h-14 outline-none rounded-lg abs border-2 px-10" type="number" min="0" placeholder="No failures" />
+                        </div>
+                    </div>
+                    
+                    <div class="w-full flex lg:flex-row flex-col gap-3">
+                        <div class="w-full bg-red-100 p-2 rounded-md border-dotted border-2 border-red-300">
+                            <div class="flex gap-2">What was your score over 20 in your first semester?
+                            </div>
+                            <input class="w-full h-14 g1 outline-none rounded-lg border-2 px-10" type="number" min="0" max="20" placeholder="term 1 score" />
+                        </div>
+
+                        <div class="w-full bg-red-100 p-2 rounded-md border-dotted border-2 border-red-300">
+                            <div class="flex gap-2">What was your score over 20 in your second semester?
+                            </div>
+                            <input class="w-full h-14 g2 outline-none rounded-lg border-2 px-10" type="number" min="0" max="20" placeholder="term 2 score" />
+                        </div>
+                    </div>
+                    
+                    
+                    <div class="">
+                        <div class="w-full bg-red-100 p-2 rounded-md border-dotted border-2 border-red-300">
+                            <div class="flex gap-2">What was your Mother's level of Education?
+                            </div>
+                            <select class="w-full medu h-14 outline-none rounded-lg border-2 lg:pl-10 pl-2">
+                                <option value="0">0- none</option>
+                                <option value="1">1- primary education (4th grade)</option>
+                                <option value="2">2- 5th to 9th grade</option>
+                                <option value="3">3- secondary education</option>
+                                <option value="4">4- higher education</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                        <input class="hidden email" value='{{request.session.email}}'  disabled hidden/>
+    
+                    <div class="w-full h-20 flex flex-row justify-center item-center">
+                        <div onclick="handleSubmit2()" class="h-12 p-auto w-32 rounded-lg flex flex-row justify-center cursor-pointer text-black item-center bg-lime-300 gap-3 pt-2">
+                            <span class="animate-spin hidden spn h-6 w-6 border-4 border-gray-200 border-t-gray-400 rounded-full"></span>
+                            <div class="">predict</div>
+                        </div>
+                    </div>
 
                 </div>
             </div>

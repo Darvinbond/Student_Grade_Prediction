@@ -1,3 +1,5 @@
+$('.alt').fadeOut("fast")
+
 function innocent(){
     document.querySelector('.fname').classList.remove('border-red-500')
     document.querySelector('.lname').classList.remove('border-red-500')
@@ -211,9 +213,37 @@ function handleSubmit2(){
         .then(res =>{
             document.querySelector('.spn').classList.add('hidden')
             if(res.data.result == true){
-                alert('success')
+                var grade = ""
+                if(res.data.grade == 0){
+                    grade = "E"
+                }
+                if(res.data.grade == 1){
+                    grade = "D"
+                }
+                if(res.data.grade == 2){
+                    grade = "C"
+                }
+                if(res.data.grade == 3){
+                    grade = "B"
+                }
+                if(res.data.grade == 4){
+                    grade = "A"
+                }
+
+                document.querySelector(".grade").innerHTML = grade;
+
+                document.querySelector(".fail").value = ""
+                document.querySelector(".abs").value = ""
+                document.querySelector(".g1").value = ""
+                document.querySelector(".g2").value = ""
+
+                $('.alt').fadeIn("fast")
+
+                setTimeout(
+                    "$('.alt').fadeOut('fast')"
+                , 2500);
             }else{
-                alert('wrong credentials')
+                alert('check your inputs')
             }
         })
         .catch(err =>{

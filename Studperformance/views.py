@@ -36,7 +36,8 @@ def get_session(request):
 		email = request.POST["email"]
 
 		# try:
-		data = History.objects.filter(owner=email).order_by("id").reverse()
+		data = History.objects.filter(owner=email).all()
+		# data = History.objects.filter(owner=email).order_by("id").reverse()
 		print('in')
 		if data.exists():
 			list_result = [[entry['datee'],entry['grade']]  for entry in data.values()]
@@ -122,7 +123,7 @@ def predict(request):
 
 			param = [dalc, walc, abs, fail, medu, g1, g2]
 
-			print(email)
+			# print(email)
 
 			result = pred(param)
 
@@ -137,12 +138,14 @@ def predict(request):
 				'grade' : result,
 				'owner' : email
 			}
+
+			print(result)
 			
 			posts_serializer = HistorySerializers(data=history_data)
 			
 			if posts_serializer.is_valid():
 				posts_serializer.save()
-				return JsonResponse({'result': True})
+				return JsonResponse({'result': True, 'grade': int(result)})
 			else:
 				print('error', posts_serializer.errors)
 				return JsonResponse({'result': False})

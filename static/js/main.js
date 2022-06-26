@@ -1,4 +1,5 @@
 $(document).ready(function(){
+    $('.alt').fadeOut("fast")
     let form_data = new FormData();
     form_data.append('email', document.querySelector(".email").value);
 
@@ -24,6 +25,14 @@ $(document).ready(function(){
         console.log(res.data.data)
         xArray = arrayColumn(res.data.data, 0)
         yArray = arrayColumn(res.data.data, 1)
+
+        var frst = new Date(xArray[0])
+        frst.setSeconds(frst.getSeconds() - 30);
+
+        xArray = [frst.toISOString(), ...xArray]
+        yArray = [0, ...yArray]
+
+        console.log(xArray)
         // yArray = yArray.forEach(element => {
         //     if(element == 0){
         //         return('e')
@@ -61,8 +70,6 @@ $(document).ready(function(){
         //     }
         // }
         // for
-        
-        console.log(yArray)
 
         var data = [{
             x: xArray,

@@ -11,12 +11,12 @@
 	<title>Homepage</title>
 </head>
 <body>
-	<div class="w-full py-10 flex justify-center item-center h-screen bg-gray-100">
-		<div class="h-full shadow-lg flex flex-row-reverse rounded-xl w-4/6 overflow-hidden">
-			<div class="w-1/2 h-full flex flex-col py-8 gap-24">
+	<div class="w-full py-10 flex justify-center item-center px-5 lg:px-0 h-screen bg-gray-100">
+		<div class="h-full shadow-lg flex flex-row-reverse rounded-xl lg:w-4/6 w-full overflow-hidden">
+			<div class="w-full lg:w-1/2 h-full flex flex-col py-8 gap-24">
 				<div class="w-full h-10 flex justify-center item-center text-3xl font-extralight">Login</div>
 
-				<div class="w-full h-full flex flex-col gap-10 px-20">
+				<div class="w-full h-full flex flex-col gap-10 lg:px-20 px-8">
 					<input class="w-full h-14 outline-none email rounded-lg border-2 px-10" placeholder="email" />
 
 					<div class="w-full flex gap-3">
@@ -29,7 +29,7 @@
 					<a href="/" class="text-blue-600">signup</a>
 				</div>
 			</div>
-			<div class="w-1/2 flex justify-center bg-gray-200 item-center overflow-hidden">
+			<div class="w-1/2 lg:flex hidden justify-center bg-gray-200 item-center overflow-hidden">
 				<img class="w-full" src="{% static 'img/login.svg' %}" alt="My image">
 			</div>
 		</div>
